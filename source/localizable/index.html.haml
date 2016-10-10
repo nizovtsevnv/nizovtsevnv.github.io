@@ -1,0 +1,30 @@
+---
+pageable: true
+---
+
+- if paginate && num_pages > 1
+  %p
+    Page
+    = page_number
+    of
+    = num_pages
+
+  - if prev_page
+    %p= link_to 'Previous page', prev_page
+
+.articles
+  - blog.local_articles.each do |article|
+    .article
+      .meta
+        = article.date.strftime('%b %e %Y')
+        - article.tags.each do |tagname|
+          %span.tag.tag-default
+            %i.fa.fa-tag{'aria-hidden' => 'true'}
+            %a{href: "/blog/tags/#{tagname}"}= tagname
+      %a.title{href: article.url}= article.title
+      .content= article.summary
+
+- if paginate
+  - if next_page
+    %p= link_to 'Next page', next_page
+

@@ -1,0 +1,30 @@
+.articles{}
+
+.article{
+  margin-bottom: 2rem;
+
+  > .meta{
+    color: #BD4147;
+    margin-right: 1rem;
+  }
+
+  > a.title{
+    display: inline-block;
+    font-size: 1.25rem;
+  }
+
+  > .content{
+    > p{
+      margin: 0;
+    }
+  }
+}
+
+span.tag a, #page-main span.tag a{
+  border-bottom: 0;
+  color: #FFF;
+}
+
+.tags{
+
+}
