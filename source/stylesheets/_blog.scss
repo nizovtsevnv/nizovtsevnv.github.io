@@ -20,11 +20,22 @@
   }
 }
 
+.pagination{
+  text-align: center;
+  width: 100%;
+
+  a{
+    border-color: transparent;
+
+    i{
+      font-size: 3rem;
+    }
+  }
+
+}
+
 span.tag a, #page-main span.tag a{
   border-bottom: 0;
   color: #FFF;
 }
 
-.tags{
-
-}

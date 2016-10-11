@@ -18,3 +18,4 @@ gem 'middleman-search_engine_sitemap'
 gem 'middleman-syntax'
 
 gem 'nokogiri'
+gem 'redcarpet'

@@ -1,4 +1,5 @@
 ---
+blog: ru
 lang: ru
 title: "Добро пожаловать в Middleman!"
 date: 2015-03-12

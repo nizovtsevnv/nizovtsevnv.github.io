@@ -52,21 +52,41 @@ end
 activate :i18n
 
 activate :blog do |blog|
-  #blog.name = 'en'
-  #blog.prefix = 'blog/en'
-  blog.prefix = 'blog'
+  blog.name = 'en'
+  blog.prefix = 'blog/en'
   blog.permalink = "{year}/{month}/{day}/{title}.html"
   blog.sources = "{year}-{month}-{day}-{title}.html"
   blog.layout = "blog"
   blog.summary_separator = /(\^\^\^)/
-  blog.summary_length = 500
+  blog.summary_length = 250
   blog.taglink = "tags/{tag}/index.html"
   blog.year_link = "{year}/index.html"
   blog.month_link = "{year}/{month}/index.html"
   blog.day_link = "{year}/{month}/{day}/index.html"
   blog.default_extension = ".haml"
-  blog.tag_template = "templates/tag.html"
-  blog.calendar_template = "templates/calendar.html"
+  blog.tag_template = "tag.html"
+  blog.calendar_template = "calendar.html"
+
+  blog.paginate = true
+  blog.per_page = 10
+  blog.page_link = "{lang}/page/{num}"
+end
+
+activate :blog do |blog|
+  blog.name = 'ru'
+  blog.prefix = 'blog/ru'
+  blog.permalink = "{year}/{month}/{day}/{title}.html"
+  blog.sources = "{year}-{month}-{day}-{title}.html"
+  blog.layout = "blog"
+  blog.summary_separator = /(\^\^\^)/
+  blog.summary_length = 250
+  blog.taglink = "tags/{tag}/index.html"
+  blog.year_link = "{year}/index.html"
+  blog.month_link = "{year}/{month}/index.html"
+  blog.day_link = "{year}/{month}/{day}/index.html"
+  blog.default_extension = ".haml"
+  blog.tag_template = "ru/tag.html"
+  blog.calendar_template = "ru/calendar.html"
 
   blog.paginate = true
   blog.per_page = 10
@@ -87,4 +107,7 @@ activate :favicon_maker do |f|
 end
 
 activate :meta_tags
+
+set :markdown_engine, :redcarpet
+set :markdown, fenced_code_blocks: true, smartypants: true
 activate :syntax

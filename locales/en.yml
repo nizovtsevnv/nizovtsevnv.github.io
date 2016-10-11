@@ -1,2 +1,3 @@
 en:
   author: Nick Nizovtsev
+  subscribe_rss: "Subscribe via <a href=%{url}>RSS</a>"

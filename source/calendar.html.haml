@@ -1,8 +1,16 @@
 ---
+blog: en
 pageable: true
 ---
 
-%h2= tagname.camelize
+%h2
+  - case page_type
+    - when 'day'
+      = Date.new(year, month, day).strftime('%b %e %Y')
+    - when 'month'
+      = Date.new(year, month, 1).strftime('%b %Y')
+    - when 'year'
+      = year
 
 - if paginate && num_pages > 1
   %p= "Page #{page_number} of #{num_pages}"

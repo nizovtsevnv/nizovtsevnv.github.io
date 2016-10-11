@@ -1,0 +1,27 @@
+---
+blog: ru
+lang: ru
+pageable: true
+---
+
+- if prev_page
+  .pagination
+    %a{href: prev_page.url}
+      %i.fa.fa-angle-double-up{'aria-hidden' => "true"}
+
+.articles
+  - page_articles.each do |article|
+    .article
+      .meta
+        = article.date.strftime('%b %e %Y')
+        - article.tags.each do |tagname|
+          %span.tag.tag-default
+            %i.fa.fa-tag{'aria-hidden' => 'true'}
+            %a{href: "/blog/tags/#{tagname}"}= tagname
+      %a.title{href: article.url}= article.title
+      .content= article.summary
+
+- if next_page
+  .pagination
+    %a{href: next_page.url}
+      %i.fa.fa-angle-double-down{'aria-hidden' => "true"}

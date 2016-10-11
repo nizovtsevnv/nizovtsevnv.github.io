@@ -1,6 +1,6 @@
 ---
-blog: en
-lang: en
+blog: ru
+lang: ru
 ---
 
 xml.instruct!

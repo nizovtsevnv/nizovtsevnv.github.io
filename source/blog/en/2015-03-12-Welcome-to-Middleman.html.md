@@ -1,4 +1,5 @@
 ---
+blog: en
 lang: en
 title: "Welcome to Middleman!"
 date: 2015-03-12

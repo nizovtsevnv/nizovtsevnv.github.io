@@ -1,0 +1,107 @@
+---
+blog: ru
+lang: ru
+title: Простое GUI(GTK) приложение на Dlang
+date: 2015-08-28
+commentable: true
+tags: dlang
+---
+
+[DUB]: http://code.dlang.org/getting_started
+[Документация по стандартной библиотеке языка D "Phobos"]: http://dlang.org/phobos
+[Проект Phobos на Github]: https://github.com/D-Programming-Language/phobos
+[Документация по обёртке GTKd]: http://api.gtkd.org
+[Проект GTKd на Github]: https://github.com/gtkd-developers/GtkD
+
+В этой статье я покажу пример каркаса приложения, которое программно создаёт основное окно, диалоговое окно About, меню и связывает его с открытием диалогового окна и завершением приложения.
+^^^
+
+Для сборки приложения нам понадобится стандартный менеджер пакетов [DUB].
+
+Справочные материалы по библиотекам используемым в этой статье можно найти по адресам:
+
+- [Документация по стандартной библиотеке языка D "Phobos"]
+- [Проект Phobos на Github]
+- [Документация по обёртке GTKd]
+- [Проект GTKd на Github]
+
+Начнём...
+
+```d
+void main(string[] argv){
+  UI.run(argv);
+}
+
+class UI{
+  import gtk.AboutDialog,
+    gtk.Main,
+    gtk.MainWindow,
+    gtk.Menu,
+    gtk.MenuBar,
+    gtk.MenuItem,
+    gtk.VBox;
+
+  static private MainWindow window;
+  static private AboutDialog about_dialog;
+
+  // Создаём и выводим элементы пользовательского интерфейса
+  static private void build(){
+    // Создаём пункт меню "Выход" и привязываем к нему метод для закрытия окна приложения
+    auto exit_menu_item = new MenuItem("Выход");
+    exit_menu_item.addOnActivate(delegate void(MenuItem item){
+      terminate();
+    });
+
+    // Создаём субменю и пункт меню "Файл", добавляем в него "Выход"
+    auto file_menu = new Menu();
+    file_menu.append(exit_menu_item);
+    auto file_menu_item = new MenuItem("Файл");
+    file_menu_item.setSubmenu(file_menu);
+
+    // Создаём пункт меню "О Программе" и привязываем к нему метод для открытия диалогового окна
+    auto about_menu_item = new MenuItem("О Программе");
+    about_menu_item.addOnActivate(delegate void(MenuItem item){
+      about_dialog.show();
+    });
+
+    // Создаём список меню и пункт меню "Помощь", добавляем в него "О Программе"
+    auto help_menu = new Menu();
+    help_menu.append(about_menu_item);
+    auto help_menu_item = new MenuItem("Помощь");
+    help_menu_item.setSubmenu(help_menu);
+
+    // Создаём панель меню и добавляем на неё "Файл", "Помощь"
+    auto menu = new MenuBar();
+    menu.append(file_menu_item);
+    menu.append(help_menu_item);
+
+    // Создаём контейнер для элементов и добавляем в него главное меню
+    // false - указывает контейнеру на разнородность размеров площадей выделяемых элементам
+    auto root_container = new VBox(false, 0);
+    // packStart - чтобы меню "прилипло" сверху контейнера
+    // ...false, false - чтобы меню не было растянуто вертикально по окну
+    root_container.packStart(menu, false, false, 0);
+
+    // Создаём диалоговое окно и устанавливаем несколько встроенных значений
+    about_dialog = new AboutDialog();
+    about_dialog.setProgramName("GTKd Template");
+    about_dialog.setVersion("0.1");
+
+    // Создаём основное окно приложения и добавляем в него контейнер с ранее добавленными элементами
+    window = new MainWindow("GTKd Template");
+    window.setDefaultSize(750, 550);
+    window.add(root_container);
+    window.showAll();
+  }
+
+  static void run(string[] argv){
+    Main.init(argv);
+    build();
+    Main.run();
+  }
+
+  static void terminate(){
+    window.close();
+  }
+}
+```

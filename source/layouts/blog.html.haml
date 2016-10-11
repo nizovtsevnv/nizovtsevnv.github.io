@@ -1,3 +1,4 @@
+- rss_link = ['', (blog_controller.name == :en ? '' : blog_controller.name) , 'feed.xml'].join('/')
 !!! 5
 %html
   %head
@@ -6,7 +7,7 @@
     %meta{content: 'IE=edge', 'http-equiv' => 'X-UA-Compatible'}
     %meta{content: 'width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no', name: 'viewport'}
     = display_meta_tags
-    = feed_tag :atom, "/feed.xml", title: 'Atom Feed'
+    = feed_tag :atom, rss_link, title: 'Подписка RSS'
 
     %title= current_page.data.title || 'nizovtsevnv.github.io'
 
@@ -36,7 +37,7 @@
           - blog.tags.keys.each do |tagname|
             %span.tag.tag-default
               %i.fa.fa-tag{'aria-hidden' => 'true'}
-              %a{href: "/blog/tags/#{tagname}"}= tagname
+              %a{href: "#{blog_controller.options.prefix}/tags/#{tagname}"}= tagname
       .row#page-main
         .col-xl-6.offset-xl-3.col-lg-8.offset-lg-2.col-md-12.col-sm-12.col-xs-12
           .article
@@ -46,7 +47,7 @@
               - current_page.tags.each do |tagname|
                 %span.tag.tag-default
                   %i.fa.fa-tag{'aria-hidden' => 'true'}
-                  %a{href: "/blog/tags/#{tagname}"}= tagname
+                  %a{href: "#{blog_controller.options.prefix}/tags/#{tagname}"}= tagname
             .content= yield
     #page-footer
       .container-fluid
@@ -63,6 +64,5 @@
             %a.img{href: "https://www.instagram.com/nizovtsevnv/", target: "blank"}
               %img{src: "/images/socials/instagram.png"}
           .col-xl-3.col-md-12.right
-            %p.rss-subscribe
-              subscribe
-              %a{href: "/feed.xml"} via RSS
+            %p.rss-subscribe= t(:subscribe_rss, url: rss_link)
+
