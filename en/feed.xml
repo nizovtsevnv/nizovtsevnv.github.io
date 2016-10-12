@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Nick Nizovtsev</title>
+  <subtitle></subtitle>
+  <id>http://nizovtsevnv.github.io/en</id>
+  <link href="http://nizovtsevnv.github.io/en"/>
+  <link href="http://nizovtsevnv.github.io/en/feed.xml" rel="self"/>
+  <updated>2015-03-12T03:00:00+03:00</updated>
+  <author>
+    <name>Nick Nizovtsev</name>
+  </author>
+  <entry>
+    <title>Welcome to Middleman!</title>
+    <link rel="alternate" href="http://nizovtsevnv.github.io/en/2015/03/12/Welcome-to-Middleman.html"/>
+    <id>http://nizovtsevnv.github.io/en/2015/03/12/Welcome-to-Middleman.html</id>
+    <published>2015-03-12T03:00:00+03:00</published>
+    <updated>2016-10-11T22:45:57+04:00</updated>
+    <author>
+      <name>Nick Nizovtsev</name>
+    </author>
+    <content type="html">&lt;p&gt;Many times I have changed my blog&amp;rsquo;s engine, at different times it was:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;on my own PHP engine&lt;/li&gt;
+&lt;li&gt;on my own Flash engine&lt;/li&gt;
+&lt;li&gt;on &lt;a href="https://wordpress.org/"&gt;Wordpress&lt;/a&gt; blogging platform&lt;/li&gt;
+&lt;li&gt;on &lt;a href="https://jekyllrb.com"&gt;Jekyll&lt;/a&gt; site generator&lt;/li&gt;
+&lt;li&gt;and now I&amp;rsquo;m here, on &lt;a href="https://middlemanapp.com/"&gt;Middleman&lt;/a&gt; site generator with &lt;a href="https://github.com/nizovtsevnv/nizovtsevnv.github.io"&gt;GitHub&lt;/a&gt; help&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+Thank you to all open source community members!&lt;/p&gt;
+
+&lt;p&gt;Special thanks to &lt;a href="https://pages.github.com/"&gt;GitHub Pages&lt;/a&gt; for the wonderful hosting service
+of open source projects, including this blog, on their servers.&lt;/p&gt;
+</content>
+  </entry>
+</feed>
