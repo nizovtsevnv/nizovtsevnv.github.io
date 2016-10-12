@@ -1,0 +1,9 @@
+.article
+  %h2= current_page.data.title
+  %p.meta
+    = current_page.date.strftime('%b %e %Y')
+    - current_page.tags.each do |tagname|
+      %span.tag.tag-default
+        %i.fa.fa-tag{'aria-hidden' => 'true'}
+        %a{href: "/en/tags/#{tagname}"}= tagname
+  .content= yield

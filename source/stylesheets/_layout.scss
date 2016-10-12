@@ -58,13 +58,18 @@ div.img-card{
 
   a{
     border-bottom: 0;
+    border-top: 0.2rem solid transparent;
     color: #F0F0F0;
   }
 
   a:focus, a:hover{
-    border-color: transparent;
+    border-bottom: 0;
     color: #FFF;
     text-decoration: none;
+  }
+
+  a.active{
+    border-top: 0.2rem solid #BD4147;
   }
 }
 

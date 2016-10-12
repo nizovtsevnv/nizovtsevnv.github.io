@@ -49,11 +49,11 @@ configure :build do
   set :relative_links, true
 end
 
-activate :i18n
+#activate :i18n
 
 activate :blog do |blog|
   blog.name = 'en'
-  blog.prefix = 'blog/en'
+  blog.prefix = 'en'
   blog.permalink = "{year}/{month}/{day}/{title}.html"
   blog.sources = "{year}-{month}-{day}-{title}.html"
   blog.layout = "blog"
@@ -64,8 +64,8 @@ activate :blog do |blog|
   blog.month_link = "{year}/{month}/index.html"
   blog.day_link = "{year}/{month}/{day}/index.html"
   blog.default_extension = ".haml"
-  blog.tag_template = "tag.html"
-  blog.calendar_template = "calendar.html"
+  blog.tag_template = "en/tag.html"
+  blog.calendar_template = "en/calendar.html"
 
   blog.paginate = true
   blog.per_page = 10
@@ -74,10 +74,10 @@ end
 
 activate :blog do |blog|
   blog.name = 'ru'
-  blog.prefix = 'blog/ru'
+  blog.prefix = 'ru'
   blog.permalink = "{year}/{month}/{day}/{title}.html"
   blog.sources = "{year}-{month}-{day}-{title}.html"
-  blog.layout = "blog"
+  blog.layout = "ru/blog"
   blog.summary_separator = /(\^\^\^)/
   blog.summary_length = 250
   blog.taglink = "tags/{tag}/index.html"
