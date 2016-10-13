@@ -1,0 +1,46 @@
+---
+blog: en
+title: My Thai travel (2013)
+date: 2013-07-01
+tags: life, travel, samui, suratthani, thailand
+---
+
+.container-fluid
+  .row
+    - i = 0
+    - {"https://farm8.staticflickr.com/7771/30142540572_c861266f54_z_d.jpg" => "Trees in the airport of Koh Samui",
+      "https://farm6.staticflickr.com/5650/29628018183_c1e575a7c8_z_d.jpg" => "The island",
+      "https://farm9.staticflickr.com/8648/30142531622_5b665eb98e_z_d.jpg" => "Front of the boat somewhere near the uninhabited island",
+      "https://farm9.staticflickr.com/8137/29628016003_057cd21810_z_d.jpg" => "Yellow flower",
+      "https://farm9.staticflickr.com/8127/30142527782_3498627cc8_z_d.jpg" => "White flowers near the home",
+      "https://farm6.staticflickr.com/5605/30257839095_bb7b5c6ac7_z_d.jpg" => "Bas-relief in a Buddhist temple",
+      "https://farm9.staticflickr.com/8617/30142521802_e9c66ba57f_z_d.jpg" => "Bas-relief in a Buddhist temple",
+      "https://farm6.staticflickr.com/5751/29628003923_3c70f21e7c_z_d.jpg" => "Bas-relief in a Buddhist temple",
+      "https://farm6.staticflickr.com/5744/30142520072_12142d475b_z_d.jpg" => "The building in a Buddhist complex",
+      "https://farm9.staticflickr.com/8713/29627999763_beb356969a_z_d.jpg" => "The Buddhist temple",
+      "https://farm9.staticflickr.com/8560/30257824535_c40fa77fc6_z_d.jpg" => "On the east coast of Koh Samui",
+      "https://farm6.staticflickr.com/5772/30172383311_27a9438c9f_z_d.jpg" => "Buddhist shrine",
+      "https://farm6.staticflickr.com/5456/29960910750_de915c85e1_z_d.jpg" => "The dog in a Buddhist complex",
+      "https://farm8.staticflickr.com/7576/30257809245_85c74b0bdd_z_d.jpg" => "The dragon head on a Buddhist complex",
+      "https://farm9.staticflickr.com/8558/29627988123_9bb9b827a3_z_d.jpg" => "The boat engine",
+      "https://farm6.staticflickr.com/5574/29627986963_375d8016a7_z_d.jpg" => "Sea taxi",
+      "https://farm9.staticflickr.com/8276/30257801065_102f0c815d_z_d.jpg" => "On the shore of an uninhabited island",
+      "https://farm6.staticflickr.com/5345/29627984993_6e3663bbbe_z_d.jpg" => "Sea bus",
+      "https://farm6.staticflickr.com/5660/30222887726_a5d5bf5001_z_d.jpg" => "In the sea",
+      "https://farm8.staticflickr.com/7505/29627982983_8ef770056d_z_d.jpg" => "In the sea",
+      "https://farm9.staticflickr.com/8597/30142492022_4dd111e0d6_z_d.jpg" => "Departing from the pier by boat",
+      "https://farm8.staticflickr.com/7582/30222885766_9b30624179_z_d.jpg" => "Parked elephant",
+      "https://farm9.staticflickr.com/8129/30142490262_3a9a62e7f7_z_d.jpg" => "Sunset in the Gulf of Thailand",
+      "https://farm6.staticflickr.com/5325/30222880716_9bdcbbed56_z_d.jpg" => "Skeleton of marine life",
+      "https://farm9.staticflickr.com/8272/29627057544_aa815f3430_z_d.jpg" => "Hatchling parrot in a nest of coconut",
+      "https://farm9.staticflickr.com/8132/29960877900_d1dfae1b5f_z_d.jpg" => "Lilac flowers near the home",
+      "https://farm9.staticflickr.com/8722/29627056844_9c17bb2f99_z_d.jpg" => "Sweet puppy who lives in the neighborhood",
+      "https://farm6.staticflickr.com/5802/29960875380_7728663730_z_d.jpg" => "Statue of seated Buddha",
+      "https://farm9.staticflickr.com/8127/30222869526_d2c3e40595_z_d.jpg" => "In the Buddhist complex near the north pier on Koh Samui",
+      "https://farm9.staticflickr.com/8415/30257765075_57039af002_z_d.jpg" => "On the Malaysian border",
+      "https://farm9.staticflickr.com/8414/30172356671_6193a795eb_z_d.jpg" => "Incredible car working on the pier of Suratthani",
+      }.to_a.shuffle.to_h.each do |src, alt|
+      - i = i + 1
+      = '^^^' if i == 4
+      = partial 'partials/flickr_card', locals: {src: src, alt: alt}
+

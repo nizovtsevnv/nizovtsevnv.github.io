@@ -12,7 +12,7 @@
         - article.tags.each do |tagname|
           %span.tag.tag-default
             %i.fa.fa-tag{'aria-hidden' => 'true'}
-            %a{href: "/blog/tags/#{tagname}"}= tagname
+            %a{href: "/#{prefix}/tags/#{tagname}"}= tagname
       .content= article.summary
 
 - if next_page

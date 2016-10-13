@@ -1,3 +1,3 @@
 = partial 'partials/page', locals: {author: 'Nick Nizovtsev', prefix: 'en', subscribe_via: 'Subscribe via'} do
-  = partial 'partials/article' do
+  = partial 'partials/article', locals: {comments: 'Comments'} do
     = yield

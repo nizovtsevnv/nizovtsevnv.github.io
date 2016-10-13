@@ -7,13 +7,10 @@ a.img:focus, a.img:hover{
   filter: brightness(120%);
 }
 
-div.img-card{
-  height: 20rem;
-  margin: 1rem;
-}
-
-.img-fluid{
-  max-height: 100%;
+.image-card{
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  text-align: center;
 }
 
 #page-content{

@@ -1,0 +1,5 @@
+- if !src.to_s.empty?
+  .col-xl-4.col-lg-6.col-md-6.col-sm-6.col-xs-12.image-card
+    %a{href: "https://www.flickr.com/photos/144125783@N05/#{src.match('([0-9]+)_[a-z0-9]+_z_d.jpg\z')[1]}/"}
+      %img.img-fluid.img-rounded{src: src, alt: alt}
+      %span= alt

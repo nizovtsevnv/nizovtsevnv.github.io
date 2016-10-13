@@ -7,3 +7,8 @@
         %i.fa.fa-tag{'aria-hidden' => 'true'}
         %a{href: "/en/tags/#{tagname}"}= tagname
   .content= yield
+
+%h3= comments
+
+= disqus
+= disqus_count
